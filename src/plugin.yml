@@ -1,0 +1,19 @@
+name: DJBukkit
+version: 0.0.1
+author: MCMastery
+description: Allows players to create music and play it
+main: com.dgrissom.djbukkit.DJBukkit
+
+commands:
+  play:
+    description: 'Plays the specified song file'
+    usage: '/play <SongName>'
+  djbukkit:
+    usage: '/djbukkit reload'
+    djbukkit reload:
+      description: 'Reloads the songs'
+      usage: '/djbukkit reload'
+      permission: 'djbukkit.reload'
+  songs:
+    description: 'Lists the available songs'
+    usage: '/songs'
