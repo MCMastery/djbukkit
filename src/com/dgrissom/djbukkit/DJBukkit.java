@@ -21,6 +21,9 @@ public class DJBukkit extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
+        if (!getDataFolder().exists())
+            if (!getDataFolder().mkdir())
+                getLogger().warning("Could not create data folder!");
         loadSongs();
     }
 
@@ -99,6 +102,8 @@ public class DJBukkit extends JavaPlugin {
             sender.sendMessage(StringUtils.format("&7========== &fAvailable Songs &7=========="));
             for (Song song : loadedSongs)
                 sender.sendMessage(song.getName());
+            if (loadedSongs.size() == 0)
+                sender.sendMessage("No available songs! If you are the owner, make sure you put the song files in the plugins/DJBukkit folder.");
             return true;
         }
 
